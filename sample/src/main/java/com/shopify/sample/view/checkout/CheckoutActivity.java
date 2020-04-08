@@ -24,7 +24,12 @@
 
 package com.shopify.sample.view.checkout;
 
-import android.arch.lifecycle.*;
+import android.arch.lifecycle.Lifecycle;
+import android.arch.lifecycle.LifecycleRegistry;
+import android.arch.lifecycle.LifecycleRegistryOwner;
+import android.arch.lifecycle.ViewModelProvider;
+import android.arch.lifecycle.ViewModelProviders;
+import android.arch.lifecycle.ViewModel;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -36,15 +41,19 @@ import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
+
 import com.shopify.sample.R;
 import com.shopify.sample.view.ProgressDialogHelper;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
 import static com.shopify.sample.util.Util.checkNotBlank;
 import static com.shopify.sample.view.checkout.CheckoutShippingRatesViewModel.REQUEST_ID_FETCH_SHIPPING_RATES;
-import static com.shopify.sample.view.checkout.CheckoutViewModel.*;
+import static com.shopify.sample.view.checkout.CheckoutViewModel.REQUEST_ID_APPLY_SHIPPING_RATE;
+import static com.shopify.sample.view.checkout.CheckoutViewModel.REQUEST_ID_COMPLETE_CHECKOUT;
+import static com.shopify.sample.view.checkout.CheckoutViewModel.REQUEST_ID_UPDATE_CHECKOUT_SHIPPING_ADDRESS;
 
 public final class CheckoutActivity extends AppCompatActivity implements LifecycleRegistryOwner {
   public static final String EXTRAS_CHECKOUT_ID = "checkout_id";

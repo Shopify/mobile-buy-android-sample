@@ -6,7 +6,8 @@ import android.support.v7.widget.RecyclerView;
 
 public final class ViewUtils {
 
-  public static void setOnNextPageListener(@NonNull final RecyclerView list, final int threshold, @NonNull final OnNextPageListener onNextPageListener) {
+  public static void setOnNextPageListener(@NonNull final RecyclerView list, final int threshold,
+                                           @NonNull final OnNextPageListener onNextPageListener) {
     list.addOnScrollListener(new RecyclerView.OnScrollListener() {
       @Override
       public void onScrollStateChanged(final RecyclerView recyclerView, final int newState) {

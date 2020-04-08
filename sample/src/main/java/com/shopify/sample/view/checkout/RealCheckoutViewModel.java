@@ -27,12 +27,23 @@ package com.shopify.sample.view.checkout;
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
 import android.support.annotation.NonNull;
-import com.shopify.sample.domain.interactor.*;
+
+import com.shopify.sample.domain.interactor.CartClearInteractor;
+import com.shopify.sample.domain.interactor.CheckoutCompleteInteractor;
+import com.shopify.sample.domain.interactor.CheckoutShippingAddressUpdateInteractor;
+import com.shopify.sample.domain.interactor.CheckoutShippingLineUpdateInteractor;
+import com.shopify.sample.domain.interactor.CheckoutShippingRatesInteractor;
+import com.shopify.sample.domain.interactor.RealCartClearInteractor;
+import com.shopify.sample.domain.interactor.RealCheckoutCompleteInteractor;
+import com.shopify.sample.domain.interactor.RealCheckoutShippingAddressUpdateInteractor;
+import com.shopify.sample.domain.interactor.RealCheckoutShippingLineUpdateInteractor;
+import com.shopify.sample.domain.interactor.RealCheckoutShippingRatesInteractor;
 import com.shopify.sample.domain.model.Checkout;
 import com.shopify.sample.domain.model.Payment;
 import com.shopify.sample.util.WeakSingleObserver;
 import com.shopify.sample.view.BaseViewModel;
 import com.shopify.sample.view.LifeCycleBoundCallback;
+
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import timber.log.Timber;
 

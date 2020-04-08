@@ -43,7 +43,8 @@ public final class Address {
   @Nullable public final String zip;
 
   public Address(@Nullable final String address1, @Nullable final String address2, @Nullable final String city,
-                 @Nullable final String country, @Nullable final String firstName, @Nullable final String lastName, @Nullable final String phone,
+                 @Nullable final String country, @Nullable final String firstName,
+                 @Nullable final String lastName, @Nullable final String phone,
                  @Nullable final String province, @Nullable final String zip) {
     this.address1 = address1;
     this.address2 = address2;

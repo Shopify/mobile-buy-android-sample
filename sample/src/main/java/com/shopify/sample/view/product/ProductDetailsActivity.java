@@ -47,7 +47,6 @@ import com.shopify.sample.view.ScreenRouter;
 import com.shopify.sample.view.cart.CartClickActionEvent;
 import com.shopify.sample.view.widget.image.ImageGalleryView;
 
-import java.util.Arrays;
 import java.util.Collections;
 
 import butterknife.BindView;
@@ -107,7 +106,8 @@ public final class ProductDetailsActivity extends AppCompatActivity implements L
 
     initViewModels(productId);
 
-    imageGalleryView.renderImages(TextUtils.isEmpty(productImageUrl) ? Collections.emptyList() : Collections.singletonList(productImageUrl));
+    imageGalleryView.renderImages(TextUtils.isEmpty(productImageUrl) ? Collections.emptyList()
+            : Collections.singletonList(productImageUrl));
     swipeRefreshLayoutView.setOnRefreshListener(() -> productViewModel.refetch());
     productDescriptionView.renderProduct(productTitle, productPrice);
     productDescriptionView.setOnAddToCartClickListener(() -> productViewModel.addToCart());

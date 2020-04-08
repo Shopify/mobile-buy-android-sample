@@ -47,7 +47,8 @@ import com.shopify.sample.view.base.RecyclerViewAdapter;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public final class CollectionListView extends LifecycleFrameLayout implements OnNextPageListener, SwipeRefreshLayout.OnRefreshListener, RecyclerViewAdapter.OnItemClickListener {
+public final class CollectionListView extends LifecycleFrameLayout implements OnNextPageListener,
+        SwipeRefreshLayout.OnRefreshListener, RecyclerViewAdapter.OnItemClickListener {
 
   @BindView(R.id.list) RecyclerView listView;
   @BindView(R.id.swipe_refresh_layout) SwipeRefreshLayout swipeRefreshLayoutView;
