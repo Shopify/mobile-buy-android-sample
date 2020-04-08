@@ -33,7 +33,8 @@ public class LifecycleFrameLayout extends FrameLayout implements LifecycleOwner 
   }
 
   @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-  public LifecycleFrameLayout(@NonNull final Context context, @Nullable final AttributeSet attrs, @AttrRes final int defStyleAttr, @StyleRes final int defStyleRes) {
+  public LifecycleFrameLayout(@NonNull final Context context, @Nullable final AttributeSet attrs,
+                              @AttrRes final int defStyleAttr, @StyleRes final int defStyleRes) {
     super(context, attrs, defStyleAttr, defStyleRes);
     initialize();
   }

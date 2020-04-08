@@ -123,7 +123,9 @@ public final class Util {
     return result;
   }
 
-  public static <T, R> R reduce(@Nullable final Collection<T> source, @NonNull final ReduceCallback<T, R> callback, @Nullable final R initialValue) {
+  public static <T, R> R reduce(@Nullable final Collection<T> source,
+                                @NonNull final ReduceCallback<T, R> callback,
+                                @Nullable final R initialValue) {
     if (source == null) {
       return initialValue;
     }

@@ -24,7 +24,12 @@
 
 package com.shopify.sample.view.cart;
 
-import android.arch.lifecycle.*;
+import android.arch.lifecycle.Lifecycle;
+import android.arch.lifecycle.LifecycleRegistry;
+import android.arch.lifecycle.LifecycleRegistryOwner;
+import android.arch.lifecycle.ViewModelProvider;
+import android.arch.lifecycle.ViewModelProviders;
+import android.arch.lifecycle.ViewModel;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -34,8 +39,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import butterknife.BindView;
-import butterknife.ButterKnife;
+
 import com.shopify.sample.BaseApplication;
 import com.shopify.sample.R;
 import com.shopify.sample.domain.model.Checkout;
@@ -43,6 +47,9 @@ import com.shopify.sample.domain.model.ShopSettings;
 import com.shopify.sample.view.ProgressDialogHelper;
 import com.shopify.sample.view.ScreenRouter;
 import com.shopify.sample.view.checkout.CheckoutViewModel;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public final class CartActivity extends AppCompatActivity implements LifecycleRegistryOwner {
   @BindView(R.id.root) View rootView;

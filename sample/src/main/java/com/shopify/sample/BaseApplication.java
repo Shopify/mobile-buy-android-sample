@@ -52,8 +52,6 @@ import java.util.concurrent.TimeUnit;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import timber.log.Timber;
 
-import static java.util.Collections.emptySet;
-
 public abstract class BaseApplication extends Application {
 
   private static BaseApplication instance;

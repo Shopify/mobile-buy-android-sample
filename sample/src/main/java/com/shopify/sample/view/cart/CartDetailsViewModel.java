@@ -24,9 +24,7 @@
 
 package com.shopify.sample.view.cart;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import com.shopify.sample.domain.model.Cart;
 import com.shopify.sample.domain.model.Checkout;
 import com.shopify.sample.view.LifeCycleBoundCallback;

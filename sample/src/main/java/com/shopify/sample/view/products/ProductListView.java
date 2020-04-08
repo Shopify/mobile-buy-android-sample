@@ -28,7 +28,6 @@ import android.content.Context;
 import android.graphics.Rect;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
@@ -38,7 +37,6 @@ import com.shopify.sample.R;
 import com.shopify.sample.domain.model.Product;
 import com.shopify.sample.view.Constant;
 import com.shopify.sample.view.ScreenRouter;
-import com.shopify.sample.view.ViewUtils;
 import com.shopify.sample.view.base.LifecycleSwipeRefreshLayout;
 import com.shopify.sample.view.base.ListItemViewModel;
 import com.shopify.sample.view.base.RecyclerViewAdapter;
@@ -47,7 +45,13 @@ import com.shopify.sample.view.collections.CollectionListViewModel;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public final class ProductListView extends LifecycleSwipeRefreshLayout implements RecyclerViewAdapter.OnItemClickListener, ViewUtils.OnNextPageListener, SwipeRefreshLayout.OnRefreshListener {
+import static android.support.v4.widget.SwipeRefreshLayout.OnRefreshListener;
+import static com.shopify.sample.view.ViewUtils.OnNextPageListener;
+import static com.shopify.sample.view.ViewUtils.setOnNextPageListener;
+import static com.shopify.sample.view.base.RecyclerViewAdapter.OnItemClickListener;
+
+public final class ProductListView extends LifecycleSwipeRefreshLayout implements
+        OnItemClickListener, OnNextPageListener, OnRefreshListener {
 
   @BindView(R.id.list) RecyclerView listView;
 
@@ -127,7 +131,7 @@ public final class ProductListView extends LifecycleSwipeRefreshLayout implement
       }
     });
 
-    ViewUtils.setOnNextPageListener(listView, Constant.THRESHOLD, this);
+    setOnNextPageListener(listView, Constant.THRESHOLD, this);
     setOnRefreshListener(this);
   }
 }
