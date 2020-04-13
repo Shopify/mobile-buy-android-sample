@@ -8,7 +8,7 @@ def versions = [
     apolloVersion        : '1.0.0',
     archVersion          : '1.1.1',
     kotlin               : '1.3.30',
-    buySdkVersion        : '4.0.0'
+    buySdkVersion        : '5.0.0'
 ]
 
 ext.isCi = "true" == System.getenv('CI')
