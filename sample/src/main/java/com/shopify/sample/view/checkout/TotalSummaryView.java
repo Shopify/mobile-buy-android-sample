@@ -25,12 +25,14 @@
 package com.shopify.sample.view.checkout;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.constraint.ConstraintLayout;
 import android.util.AttributeSet;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
+
 import com.shopify.sample.R;
+import com.shopify.sample.R2;
 
 import java.math.BigDecimal;
 import java.text.NumberFormat;
@@ -43,10 +45,10 @@ import static com.shopify.sample.util.Util.checkNotNull;
 public final class TotalSummaryView extends ConstraintLayout {
   private static final NumberFormat CURRENCY_FORMAT = NumberFormat.getCurrencyInstance();
 
-  @BindView(R.id.subtotal) TextView subtotalView;
-  @BindView(R.id.shipping) TextView shippingView;
-  @BindView(R.id.tax) TextView taxView;
-  @BindView(R.id.total) TextView totalView;
+  @BindView(R2.id.subtotal) TextView subtotalView;
+  @BindView(R2.id.shipping) TextView shippingView;
+  @BindView(R2.id.tax) TextView taxView;
+  @BindView(R2.id.total) TextView totalView;
 
   public TotalSummaryView(final Context context) {
     super(context);

@@ -1,8 +1,8 @@
 package com.shopify.sample.view.collections;
 
-import android.arch.lifecycle.LiveData;
-import android.arch.lifecycle.Transformations;
-import android.support.annotation.NonNull;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.Transformations;
+import androidx.annotation.NonNull;
 
 import com.shopify.sample.core.UseCase.Cancelable;
 import com.shopify.sample.domain.model.Collection;

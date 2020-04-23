@@ -24,7 +24,7 @@
 
 package com.shopify.sample.domain.model;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import java.math.BigDecimal;
 import java.util.List;

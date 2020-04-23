@@ -24,11 +24,13 @@
 
 package com.shopify.sample.view.cart;
 
-import android.support.annotation.NonNull;
 import android.view.View;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+
 import com.shopify.sample.R;
+import com.shopify.sample.R2;
 import com.shopify.sample.domain.model.CartItem;
 import com.shopify.sample.view.base.ListItemViewHolder;
 import com.shopify.sample.view.base.ListItemViewModel;
@@ -73,12 +75,12 @@ final class CartListItemViewModel extends ListItemViewModel<CartItem> {
 
   static final class ItemViewHolder extends ListItemViewHolder<CartItem, ListItemViewModel<CartItem>> {
     static final NumberFormat CURRENCY_FORMAT = NumberFormat.getCurrencyInstance();
-    @BindView(R.id.image) ShopifyDraweeView imageView;
-    @BindView(R.id.title) TextView titleView;
-    @BindView(R.id.variant) TextView variantView;
-    @BindView(R.id.price) TextView priceView;
-    @BindView(R.id.quantity) TextView quantityView;
-    @BindView(R.id.divider) View dividerView;
+    @BindView(R2.id.image) ShopifyDraweeView imageView;
+    @BindView(R2.id.title) TextView titleView;
+    @BindView(R2.id.variant) TextView variantView;
+    @BindView(R2.id.price) TextView priceView;
+    @BindView(R2.id.quantity) TextView quantityView;
+    @BindView(R2.id.divider) View dividerView;
     final OnChangeQuantityClickListener onChangeQuantityClickListener;
 
     ItemViewHolder(@NonNull final OnChangeQuantityClickListener onChangeQuantityClickListener,
@@ -97,12 +99,12 @@ final class CartListItemViewModel extends ListItemViewModel<CartItem> {
       dividerView.setVisibility(position == 0 ? View.INVISIBLE : View.VISIBLE);
     }
 
-    @OnClick(R.id.decrement_quantity)
+    @OnClick(R2.id.decrement_quantity)
     void onDecrementQuantityClick() {
       onChangeQuantityClickListener.onRemoveCartItemClick(itemModel().payload());
     }
 
-    @OnClick(R.id.increment_quantity)
+    @OnClick(R2.id.increment_quantity)
     void onIncrementQuantityClick() {
       onChangeQuantityClickListener.onAddCartItemClick(itemModel().payload());
     }

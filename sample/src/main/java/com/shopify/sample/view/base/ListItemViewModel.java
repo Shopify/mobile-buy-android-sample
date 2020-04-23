@@ -24,8 +24,8 @@
 
 package com.shopify.sample.view.base;
 
-import android.support.annotation.LayoutRes;
-import android.support.annotation.NonNull;
+import androidx.annotation.LayoutRes;
+import androidx.annotation.NonNull;
 
 public abstract class ListItemViewModel<T> {
   private final T payload;

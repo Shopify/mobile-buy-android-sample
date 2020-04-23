@@ -24,7 +24,7 @@
 
 package com.shopify.sample.view.cart;
 
-import android.arch.lifecycle.LiveData;
+import androidx.lifecycle.LiveData;
 
 import java.math.BigDecimal;
 

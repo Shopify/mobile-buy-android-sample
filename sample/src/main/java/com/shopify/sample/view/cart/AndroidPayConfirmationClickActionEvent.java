@@ -26,7 +26,7 @@ package com.shopify.sample.view.cart;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import com.shopify.sample.domain.model.Cart;
 import com.shopify.sample.view.ScreenActionEvent;
 

@@ -24,10 +24,12 @@
 
 package com.shopify.sample.view.collections;
 
-import android.support.annotation.NonNull;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+
 import com.shopify.sample.R;
+import com.shopify.sample.R2;
 import com.shopify.sample.domain.model.Collection;
 import com.shopify.sample.view.base.ListItemViewHolder;
 import com.shopify.sample.view.base.ListItemViewModel;
@@ -62,7 +64,7 @@ final class CollectionTitleListItemViewModel extends ListItemViewModel<Collectio
   }
 
   static final class ItemViewHolder extends ListItemViewHolder<Collection, ListItemViewModel<Collection>> {
-    @BindView(R.id.title) TextView titleView;
+    @BindView(R2.id.title) TextView titleView;
 
     ItemViewHolder(@NonNull final OnClickListener onClickListener) {
       super(onClickListener);

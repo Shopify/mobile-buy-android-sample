@@ -23,7 +23,7 @@
  */
 package com.shopify.sample.domain.model;
 
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 /**
  * Convenient class that represents a Shopify-compliant address.

@@ -24,17 +24,19 @@
 
 package com.shopify.sample.view.checkout;
 
-import android.arch.lifecycle.Lifecycle;
-import android.arch.lifecycle.LifecycleOwner;
-import android.arch.lifecycle.LifecycleRegistry;
-import android.arch.lifecycle.Transformations;
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.constraint.ConstraintLayout;
 import android.util.AttributeSet;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.LifecycleOwner;
+import androidx.lifecycle.LifecycleRegistry;
+import androidx.lifecycle.Transformations;
+
 import com.shopify.sample.R;
+import com.shopify.sample.R2;
 import com.shopify.sample.domain.model.Checkout;
 
 import java.text.NumberFormat;
@@ -46,8 +48,8 @@ import butterknife.OnClick;
 public final class ShippingRatesView extends ConstraintLayout implements LifecycleOwner {
   private static final NumberFormat CURRENCY_FORMAT = NumberFormat.getCurrencyInstance();
 
-  @BindView(R.id.shipping_line) TextView shippingLineView;
-  @BindView(R.id.price) TextView priceView;
+  @BindView(R2.id.shipping_line) TextView shippingLineView;
+  @BindView(R2.id.price) TextView priceView;
 
   private final LifecycleRegistry lifecycleRegistry = new LifecycleRegistry(this);
   private CheckoutShippingRatesViewModel viewModel;
@@ -93,7 +95,7 @@ public final class ShippingRatesView extends ConstraintLayout implements Lifecyc
     return lifecycleRegistry;
   }
 
-  @OnClick(R.id.change)
+  @OnClick(R2.id.change)
   void onChangeClick() {
     Checkout.ShippingRates shippingRates = viewModel.shippingRatesLiveData().getValue();
     if (shippingRates == null || shippingRates.shippingRates.isEmpty()) {

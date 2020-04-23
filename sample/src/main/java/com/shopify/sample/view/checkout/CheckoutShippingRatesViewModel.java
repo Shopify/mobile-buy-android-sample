@@ -24,8 +24,8 @@
 
 package com.shopify.sample.view.checkout;
 
-import android.arch.lifecycle.LiveData;
-import android.support.annotation.Nullable;
+import androidx.lifecycle.LiveData;
+import androidx.annotation.Nullable;
 
 import com.shopify.sample.domain.model.Checkout;
 import com.shopify.sample.view.ViewModel;

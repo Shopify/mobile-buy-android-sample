@@ -24,7 +24,7 @@
 
 package com.shopify.sample.view;
 
-import android.arch.lifecycle.LiveData;
+import androidx.lifecycle.LiveData;
 
 @SuppressWarnings("WeakerAccess")
 public final class ProgressLiveData extends LiveData<ProgressLiveData.Progress> {

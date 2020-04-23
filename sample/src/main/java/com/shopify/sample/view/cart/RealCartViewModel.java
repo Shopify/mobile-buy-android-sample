@@ -24,11 +24,11 @@
 
 package com.shopify.sample.view.cart;
 
-import android.arch.lifecycle.LiveData;
-import android.arch.lifecycle.MutableLiveData;
-import android.arch.lifecycle.Transformations;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.Transformations;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import com.shopify.sample.domain.interactor.CartWatchInteractor;
 import com.shopify.sample.domain.interactor.CheckoutCreateInteractor;
 import com.shopify.sample.domain.interactor.RealCartWatchInteractor;

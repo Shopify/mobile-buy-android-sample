@@ -24,7 +24,7 @@
 
 package com.shopify.sample.view;
 
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 public final class UserErrorCallback extends LifeCycleBoundCallback<UserErrorCallback.Error> {
 

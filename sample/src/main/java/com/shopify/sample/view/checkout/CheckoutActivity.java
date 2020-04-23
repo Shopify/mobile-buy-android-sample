@@ -24,25 +24,27 @@
 
 package com.shopify.sample.view.checkout;
 
-import android.arch.lifecycle.Lifecycle;
-import android.arch.lifecycle.LifecycleRegistry;
-import android.arch.lifecycle.LifecycleRegistryOwner;
-import android.arch.lifecycle.ViewModelProvider;
-import android.arch.lifecycle.ViewModelProviders;
-import android.arch.lifecycle.ViewModel;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.LifecycleRegistry;
+import androidx.lifecycle.LifecycleRegistryOwner;
+import androidx.lifecycle.ViewModel;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.lifecycle.ViewModelProviders;
+
+import com.google.android.material.snackbar.Snackbar;
 import com.shopify.sample.R;
+import com.shopify.sample.R2;
 import com.shopify.sample.view.ProgressDialogHelper;
 
 import butterknife.BindView;
@@ -60,15 +62,15 @@ public final class CheckoutActivity extends AppCompatActivity implements Lifecyc
   public static final String EXTRAS_PAY_CART = "pay_cart";
   public static final String EXTRAS_MASKED_WALLET = "masked_wallet";
 
-  @BindView(R.id.root)
+  @BindView(R2.id.root)
   View rootView;
-  @BindView(R.id.toolbar)
+  @BindView(R2.id.toolbar)
   Toolbar toolbarView;
-  @BindView(R.id.total_summary)
+  @BindView(R2.id.total_summary)
   TotalSummaryView totalSummaryView;
-  @BindView(R.id.shipping_rates)
+  @BindView(R2.id.shipping_rates)
   ShippingRatesView shippingRatesView;
-  @BindView(R.id.confirm_layout)
+  @BindView(R2.id.confirm_layout)
   View confirmLayoutView;
 
   private String checkoutId;
@@ -149,7 +151,7 @@ public final class CheckoutActivity extends AppCompatActivity implements Lifecyc
     return true;
   }
 
-  @OnClick(R.id.confirm)
+  @OnClick(R2.id.confirm)
   void onConfirmClick() {
     checkoutViewModel.confirmCheckout();
   }
@@ -237,7 +239,7 @@ public final class CheckoutActivity extends AppCompatActivity implements Lifecyc
     snackbar.getView().setBackgroundResource(R.color.snackbar_error_background);
     snackbar.getView().setMinimumHeight(confirmLayoutView.getHeight());
 
-    TextView textView = (TextView) snackbar.getView().findViewById(android.support.design.R.id.snackbar_text);
+    TextView textView = snackbar.getView().findViewById(R.id.snackbar_text);
     ViewGroup.LayoutParams layoutParams = textView.getLayoutParams();
     layoutParams.height = confirmLayoutView.getHeight();
     textView.setLayoutParams(layoutParams);

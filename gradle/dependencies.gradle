@@ -1,12 +1,12 @@
 def versions = [
     androidPlugin        : '3.3.0',
-    androidSupportVersion: '28.0.0',
+    androidSupportVersion: '1.0.0',
     okHttpVersion        : '3.7.0',
     playServicesVersion  : '16.0.1',
     jodaTimeVersion      : '2.9.9',
-    butterKnifeVersion   : '9.0.0',
+    butterKnifeVersion   : '10.2.1',
     apolloVersion        : '1.0.0',
-    archVersion          : '1.1.1',
+    archVersion          : '2.0.0',
     kotlin               : '1.3.30',
     buySdkVersion        : '5.0.0'
 ]
@@ -21,10 +21,10 @@ ext.androidConfig = [
 
 ext.dep = [
     androidPlugin            : "com.android.tools.build:gradle:$versions.androidPlugin",
-    androidSupportAnnotations: "com.android.support:support-annotations:$versions.androidSupportVersion",
-    androidSupportDesign     : "com.android.support:design:$versions.androidSupportVersion",
-    androidSupportV4         : "com.android.support:support-v4:$versions.androidSupportVersion",
-    androidSupportV7         : "com.android.support:appcompat-v7:$versions.androidSupportVersion",
+    androidSupportAnnotations: "androidx.annotation:annotation:$versions.androidSupportVersion",
+    androidSupportDesign     : "com.google.android.material:material:$versions.androidSupportVersion",
+    androidSupportV4         : "androidx.legacy:legacy-support-v4:$versions.androidSupportVersion",
+    androidSupportV7         : "androidx.appcompat:appcompat:$versions.androidSupportVersion",
     kotlinPlugin             : "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin",
     kotlinStdLib             : "org.jetbrains.kotlin:kotlin-stdlib:$versions.kotlin",
     okhttp                   : "com.squareup.okhttp3:logging-interceptor:$versions.okHttpVersion",
@@ -48,9 +48,9 @@ ext.dep = [
     apolloPlugin             : "com.apollographql.apollo:apollo-gradle-plugin:$versions.apolloVersion",
     apolloRuntime            : "com.apollographql.apollo:apollo-runtime:$versions.apolloVersion",
     apolloHttpCache          : "com.apollographql.apollo:apollo-http-cache:$versions.apolloVersion",
-    constraintLayout         : "com.android.support.constraint:constraint-layout:1.0.2",
+    constraintLayout         : "androidx.constraintlayout:constraintlayout:1.1.3",
     rxrelay                  : "com.jakewharton.rxrelay2:rxrelay:2.0.0",
-    archComponents           : "android.arch.lifecycle:extensions:$versions.archVersion",
+    archComponents           : "androidx.lifecycle:lifecycle-extensions:$versions.archVersion",
     gson                     : "com.google.code.gson:gson:2.8.6",
     buySdk                   : "com.shopify.mobilebuysdk:buy3:$versions.buySdkVersion"
 ]
