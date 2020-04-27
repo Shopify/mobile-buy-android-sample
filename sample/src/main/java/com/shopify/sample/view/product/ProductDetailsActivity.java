@@ -35,7 +35,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleRegistry;
-import androidx.lifecycle.LifecycleRegistryOwner;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
@@ -56,7 +55,7 @@ import butterknife.ButterKnife;
 
 import static com.shopify.sample.util.Util.checkNotNull;
 
-public final class ProductDetailsActivity extends AppCompatActivity implements LifecycleRegistryOwner {
+public final class ProductDetailsActivity extends AppCompatActivity {
   public static final String EXTRAS_PRODUCT_ID = "product_id";
   public static final String EXTRAS_PRODUCT_IMAGE_URL = "product_image_url";
   public static final String EXTRAS_PRODUCT_TITLE = "product_title";

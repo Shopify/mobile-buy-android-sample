@@ -53,7 +53,7 @@ import com.shopify.sample.view.checkout.CheckoutViewModel;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public final class CartActivity extends AppCompatActivity implements LifecycleRegistryOwner {
+public final class CartActivity extends AppCompatActivity {
   @BindView(R2.id.root) View rootView;
   @BindView(R2.id.cart_header) CartHeaderView cartHeaderView;
   @BindView(R2.id.cart_list) CartListView cartListView;

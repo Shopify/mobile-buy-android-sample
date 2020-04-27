@@ -57,7 +57,7 @@ import static com.shopify.sample.view.checkout.CheckoutViewModel.REQUEST_ID_APPL
 import static com.shopify.sample.view.checkout.CheckoutViewModel.REQUEST_ID_COMPLETE_CHECKOUT;
 import static com.shopify.sample.view.checkout.CheckoutViewModel.REQUEST_ID_UPDATE_CHECKOUT_SHIPPING_ADDRESS;
 
-public final class CheckoutActivity extends AppCompatActivity implements LifecycleRegistryOwner {
+public final class CheckoutActivity extends AppCompatActivity {
   public static final String EXTRAS_CHECKOUT_ID = "checkout_id";
   public static final String EXTRAS_PAY_CART = "pay_cart";
   public static final String EXTRAS_MASKED_WALLET = "masked_wallet";
