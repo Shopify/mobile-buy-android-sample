@@ -24,24 +24,26 @@
 
 package com.shopify.sample.view.cart;
 
-import android.arch.lifecycle.Lifecycle;
-import android.arch.lifecycle.LifecycleRegistry;
-import android.arch.lifecycle.LifecycleRegistryOwner;
-import android.arch.lifecycle.ViewModelProvider;
-import android.arch.lifecycle.ViewModelProviders;
-import android.arch.lifecycle.ViewModel;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.LifecycleRegistry;
+import androidx.lifecycle.LifecycleRegistryOwner;
+import androidx.lifecycle.ViewModel;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.lifecycle.ViewModelProviders;
+
+import com.google.android.material.snackbar.Snackbar;
 import com.shopify.sample.BaseApplication;
 import com.shopify.sample.R;
+import com.shopify.sample.R2;
 import com.shopify.sample.domain.model.Checkout;
 import com.shopify.sample.domain.model.ShopSettings;
 import com.shopify.sample.view.ProgressDialogHelper;
@@ -51,11 +53,11 @@ import com.shopify.sample.view.checkout.CheckoutViewModel;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public final class CartActivity extends AppCompatActivity implements LifecycleRegistryOwner {
-  @BindView(R.id.root) View rootView;
-  @BindView(R.id.cart_header) CartHeaderView cartHeaderView;
-  @BindView(R.id.cart_list) CartListView cartListView;
-  @BindView(R.id.toolbar) Toolbar toolbarView;
+public final class CartActivity extends AppCompatActivity {
+  @BindView(R2.id.root) View rootView;
+  @BindView(R2.id.cart_header) CartHeaderView cartHeaderView;
+  @BindView(R2.id.cart_list) CartListView cartListView;
+  @BindView(R2.id.toolbar) Toolbar toolbarView;
 
   private final LifecycleRegistry lifecycleRegistry = new LifecycleRegistry(this);
   private CartDetailsViewModel cartDetailsViewModel;

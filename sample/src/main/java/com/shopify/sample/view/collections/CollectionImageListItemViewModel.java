@@ -24,9 +24,10 @@
 
 package com.shopify.sample.view.collections;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import com.shopify.sample.R;
+import com.shopify.sample.R2;
 import com.shopify.sample.domain.model.Collection;
 import com.shopify.sample.view.base.ListItemViewHolder;
 import com.shopify.sample.view.base.ListItemViewModel;
@@ -63,7 +64,7 @@ final class CollectionImageListItemViewModel extends ListItemViewModel<Collectio
   }
 
   static final class ItemViewHolder extends ListItemViewHolder<Collection, ListItemViewModel<Collection>> {
-    @BindView(R.id.image) ShopifyDraweeView imageView;
+    @BindView(R2.id.image) ShopifyDraweeView imageView;
 
     ItemViewHolder(@NonNull final ListItemViewHolder.OnClickListener onClickListener) {
       super(onClickListener);
@@ -74,7 +75,7 @@ final class CollectionImageListItemViewModel extends ListItemViewModel<Collectio
       imageView.loadShopifyImage(listViewItemModel.payload().image);
     }
 
-    @SuppressWarnings("unchecked") @OnClick(R.id.image)
+    @SuppressWarnings("unchecked") @OnClick(R2.id.image)
     void onImageClick() {
       onClickListener().onClick(itemModel());
     }

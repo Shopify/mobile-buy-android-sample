@@ -24,7 +24,7 @@
 
 package com.shopify.sample.view;
 
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 import com.shopify.sample.domain.model.UserMessageError;
 import com.shopify.sample.util.RequestRegister;
@@ -35,7 +35,7 @@ import io.reactivex.disposables.Disposable;
 import static com.shopify.sample.util.Util.checkNotNull;
 
 @SuppressWarnings("WeakerAccess")
-public abstract class BaseViewModel extends android.arch.lifecycle.ViewModel implements ViewModel {
+public abstract class BaseViewModel extends androidx.lifecycle.ViewModel implements ViewModel {
   private final ProgressLiveData progressLiveData = new ProgressLiveData();
   private final UserErrorCallback errorCallback = new UserErrorCallback();
   private final RequestRegister<Integer> requestRegister = new RequestRegister<>();

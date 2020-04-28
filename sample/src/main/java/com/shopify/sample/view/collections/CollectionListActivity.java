@@ -24,15 +24,17 @@
 
 package com.shopify.sample.view.collections;
 
-import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.lifecycle.ViewModelProviders;
+
 import com.shopify.sample.R;
+import com.shopify.sample.R2;
 import com.shopify.sample.view.ScreenRouter;
 import com.shopify.sample.view.cart.CartClickActionEvent;
 
@@ -41,8 +43,8 @@ import butterknife.ButterKnife;
 
 public final class CollectionListActivity extends AppCompatActivity {
 
-  @BindView(R.id.collection_list) CollectionListView collectionListView;
-  @BindView(R.id.toolbar) Toolbar toolbarView;
+  @BindView(R2.id.collection_list) CollectionListView collectionListView;
+  @BindView(R2.id.toolbar) Toolbar toolbarView;
 
   @SuppressWarnings("ConstantConditions")
   @Override

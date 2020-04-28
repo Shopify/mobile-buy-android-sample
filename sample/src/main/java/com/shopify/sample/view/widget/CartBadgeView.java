@@ -25,15 +25,16 @@
 package com.shopify.sample.view.widget;
 
 import android.content.Context;
-import android.support.annotation.AttrRes;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
-import com.shopify.sample.R;
+import androidx.annotation.AttrRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
+import com.shopify.sample.R2;
 import com.shopify.sample.domain.model.Cart;
 import com.shopify.sample.domain.repository.CartRepository;
 import com.shopify.sample.domain.repository.RealCartRepository;
@@ -45,7 +46,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 
 public final class CartBadgeView extends FrameLayout {
-  @BindView(R.id.count) TextView countView;
+  @BindView(R2.id.count) TextView countView;
 
   private CartRepository cartRepository = new RealCartRepository();
   private Disposable cartSubscription;

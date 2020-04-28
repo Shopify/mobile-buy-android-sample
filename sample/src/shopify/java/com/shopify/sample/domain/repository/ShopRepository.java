@@ -1,6 +1,6 @@
 package com.shopify.sample.domain.repository;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import com.shopify.buy3.GraphCall;
 import com.shopify.buy3.GraphClient;
@@ -10,7 +10,6 @@ import com.shopify.sample.RxUtil;
 import io.reactivex.Single;
 import io.reactivex.schedulers.Schedulers;
 
-import static com.shopify.sample.RxUtil.rxGraphQueryCall;
 import static com.shopify.sample.util.Util.checkNotNull;
 
 public final class ShopRepository {

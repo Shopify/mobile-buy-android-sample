@@ -24,18 +24,20 @@
 
 package com.shopify.sample.view.cart;
 
-import android.arch.lifecycle.Lifecycle;
-import android.arch.lifecycle.LifecycleOwner;
-import android.arch.lifecycle.LifecycleRegistry;
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.design.widget.Snackbar;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.SimpleItemAnimator;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
 
+import androidx.annotation.NonNull;
+import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.LifecycleOwner;
+import androidx.lifecycle.LifecycleRegistry;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.SimpleItemAnimator;
+
+import com.google.android.material.snackbar.Snackbar;
 import com.shopify.sample.R;
+import com.shopify.sample.R2;
 import com.shopify.sample.domain.model.CartItem;
 import com.shopify.sample.view.BasePaginatedListViewModel;
 import com.shopify.sample.view.base.ListItemViewModel;
@@ -49,7 +51,7 @@ import butterknife.ButterKnife;
 import static com.shopify.sample.util.Util.checkNotNull;
 
 public final class CartListView extends FrameLayout implements LifecycleOwner {
-  @BindView(R.id.list) RecyclerView listView;
+  @BindView(R2.id.list) RecyclerView listView;
 
   private final LifecycleRegistry lifecycleRegistry = new LifecycleRegistry(this);
   private final RecyclerViewAdapter listViewAdapter = new RecyclerViewAdapter();

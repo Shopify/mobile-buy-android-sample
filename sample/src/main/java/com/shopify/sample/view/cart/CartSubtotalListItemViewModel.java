@@ -25,14 +25,16 @@
 package com.shopify.sample.view.cart;
 
 import android.content.res.TypedArray;
-import android.support.annotation.NonNull;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.style.ForegroundColorSpan;
 import android.view.View;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+
 import com.shopify.sample.R;
+import com.shopify.sample.R2;
 import com.shopify.sample.domain.model.Cart;
 import com.shopify.sample.view.base.ListItemViewHolder;
 import com.shopify.sample.view.base.ListItemViewModel;
@@ -62,7 +64,7 @@ final class CartSubtotalListItemViewModel extends ListItemViewModel<Cart> {
 
   static final class ItemViewHolder extends ListItemViewHolder<Cart, ListItemViewModel<Cart>> {
     static final NumberFormat CURRENCY_FORMAT = NumberFormat.getCurrencyInstance();
-    @BindView(R.id.subtotal) TextView subtotalView;
+    @BindView(R2.id.subtotal) TextView subtotalView;
     private int colorAccent;
 
     ItemViewHolder(@NonNull final OnClickListener onClickListener) {

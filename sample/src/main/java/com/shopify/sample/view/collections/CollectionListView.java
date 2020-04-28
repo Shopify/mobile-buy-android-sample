@@ -25,16 +25,18 @@
 package com.shopify.sample.view.collections;
 
 import android.content.Context;
-import android.support.annotation.AttrRes;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.design.widget.Snackbar;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 
+import androidx.annotation.AttrRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
+import com.google.android.material.snackbar.Snackbar;
 import com.shopify.sample.R;
+import com.shopify.sample.R2;
 import com.shopify.sample.domain.model.Collection;
 import com.shopify.sample.view.Constant;
 import com.shopify.sample.view.ScreenRouter;
@@ -50,8 +52,8 @@ import butterknife.ButterKnife;
 public final class CollectionListView extends LifecycleFrameLayout implements OnNextPageListener,
         SwipeRefreshLayout.OnRefreshListener, RecyclerViewAdapter.OnItemClickListener {
 
-  @BindView(R.id.list) RecyclerView listView;
-  @BindView(R.id.swipe_refresh_layout) SwipeRefreshLayout swipeRefreshLayoutView;
+  @BindView(R2.id.list) RecyclerView listView;
+  @BindView(R2.id.swipe_refresh_layout) SwipeRefreshLayout swipeRefreshLayoutView;
 
   private RecyclerViewAdapter adapter;
   private CollectionListViewModel viewModel;

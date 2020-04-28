@@ -26,15 +26,17 @@ package com.shopify.sample.view.widget.image;
 
 import android.content.Context;
 import android.graphics.Rect;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.PagerSnapHelper;
-import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.FrameLayout;
 
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.PagerSnapHelper;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.shopify.sample.R;
+import com.shopify.sample.R2;
 import com.shopify.sample.util.Util;
 import com.shopify.sample.view.base.ListItemViewHolder;
 import com.shopify.sample.view.base.ListItemViewModel;
@@ -50,9 +52,9 @@ import butterknife.OnClick;
 import static com.shopify.sample.util.Util.checkNotNull;
 
 public final class ImageGalleryView extends FrameLayout implements RecyclerViewAdapter.OnItemClickListener {
-  @BindView(R.id.pager) RecyclerView pagerView;
-  @BindView(R.id.pager_indicator) RecyclerView pagerIndicatorView;
-  @BindView(R.id.pager_indicator_frame) View pagerIndicatorFrameView;
+  @BindView(R2.id.pager) RecyclerView pagerView;
+  @BindView(R2.id.pager_indicator) RecyclerView pagerIndicatorView;
+  @BindView(R2.id.pager_indicator_frame) View pagerIndicatorFrameView;
 
   private final RecyclerViewAdapter pagerAdapter = new RecyclerViewAdapter();
   private final RecyclerViewAdapter pagerIndicatorAdapter = new RecyclerViewAdapter(this);
@@ -167,7 +169,7 @@ public final class ImageGalleryView extends FrameLayout implements RecyclerViewA
     }
 
     static final class ItemViewHolder extends ListItemViewHolder<String, ListItemViewModel<String>> {
-      @BindView(R.id.image) ShopifyDraweeView imageView;
+      @BindView(R2.id.image) ShopifyDraweeView imageView;
 
       ItemViewHolder(@NonNull final OnClickListener onClickListener) {
         super(onClickListener);
@@ -178,7 +180,7 @@ public final class ImageGalleryView extends FrameLayout implements RecyclerViewA
         imageView.loadShopifyImage(listViewItemModel.payload());
       }
 
-      @SuppressWarnings("unchecked") @OnClick(R.id.image)
+      @SuppressWarnings("unchecked") @OnClick(R2.id.image)
       void onImageClick() {
         onClickListener().onClick(itemModel());
       }
@@ -199,7 +201,7 @@ public final class ImageGalleryView extends FrameLayout implements RecyclerViewA
     }
 
     static final class ItemViewHolder extends ListItemViewHolder<String, ListItemViewModel<String>> {
-      @BindView(R.id.image) ShopifyDraweeView imageView;
+      @BindView(R2.id.image) ShopifyDraweeView imageView;
 
       ItemViewHolder(@NonNull final OnClickListener onClickListener) {
         super(onClickListener);
@@ -210,7 +212,7 @@ public final class ImageGalleryView extends FrameLayout implements RecyclerViewA
         imageView.loadShopifyImage(listViewItemModel.payload());
       }
 
-      @SuppressWarnings("unchecked") @OnClick(R.id.image)
+      @SuppressWarnings("unchecked") @OnClick(R2.id.image)
       void onImageClick() {
         onClickListener().onClick(itemModel());
       }

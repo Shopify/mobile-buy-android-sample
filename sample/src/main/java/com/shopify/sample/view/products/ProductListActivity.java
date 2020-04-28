@@ -24,17 +24,19 @@
 
 package com.shopify.sample.view.products;
 
-import android.arch.lifecycle.ViewModel;
-import android.arch.lifecycle.ViewModelProvider;
-import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.lifecycle.ViewModel;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.lifecycle.ViewModelProviders;
+
 import com.shopify.sample.R;
+import com.shopify.sample.R2;
 import com.shopify.sample.view.ScreenRouter;
 import com.shopify.sample.view.cart.CartClickActionEvent;
 import com.shopify.sample.view.widget.image.ShopifyDraweeView;
@@ -50,9 +52,9 @@ public final class ProductListActivity extends AppCompatActivity {
   public static final String EXTRAS_COLLECTION_IMAGE_URL = "collection_image_url";
   public static final String EXTRAS_COLLECTION_TITLE = "collection_title";
 
-  @BindView(R.id.toolbar) Toolbar toolbarView;
-  @BindView(R.id.collection_image) ShopifyDraweeView collectionImageView;
-  @BindView(R.id.product_list) ProductListView productListView;
+  @BindView(R2.id.toolbar) Toolbar toolbarView;
+  @BindView(R2.id.collection_image) ShopifyDraweeView collectionImageView;
+  @BindView(R2.id.product_list) ProductListView productListView;
 
   @Override
   protected void onCreate(@Nullable final Bundle savedInstanceState) {

@@ -24,24 +24,25 @@
 
 package com.shopify.sample.view.product;
 
-import android.arch.lifecycle.Lifecycle;
-import android.arch.lifecycle.LifecycleRegistry;
-import android.arch.lifecycle.LifecycleRegistryOwner;
-import android.arch.lifecycle.ViewModel;
-import android.arch.lifecycle.ViewModelProvider;
-import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.design.widget.Snackbar;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.LifecycleRegistry;
+import androidx.lifecycle.ViewModel;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.lifecycle.ViewModelProviders;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
+import com.google.android.material.snackbar.Snackbar;
 import com.shopify.sample.R;
+import com.shopify.sample.R2;
 import com.shopify.sample.domain.model.ProductDetails;
 import com.shopify.sample.view.ScreenRouter;
 import com.shopify.sample.view.cart.CartClickActionEvent;
@@ -54,17 +55,17 @@ import butterknife.ButterKnife;
 
 import static com.shopify.sample.util.Util.checkNotNull;
 
-public final class ProductDetailsActivity extends AppCompatActivity implements LifecycleRegistryOwner {
+public final class ProductDetailsActivity extends AppCompatActivity {
   public static final String EXTRAS_PRODUCT_ID = "product_id";
   public static final String EXTRAS_PRODUCT_IMAGE_URL = "product_image_url";
   public static final String EXTRAS_PRODUCT_TITLE = "product_title";
   public static final String EXTRAS_PRODUCT_PRICE = "product_price";
 
-  @BindView(R.id.root) View rootView;
-  @BindView(R.id.swipe_refresh) SwipeRefreshLayout swipeRefreshLayoutView;
-  @BindView(R.id.toolbar) Toolbar toolbarView;
-  @BindView(R.id.image_gallery) ImageGalleryView imageGalleryView;
-  @BindView(R.id.product_description) ProductDescriptionView productDescriptionView;
+  @BindView(R2.id.root) View rootView;
+  @BindView(R2.id.swipe_refresh) SwipeRefreshLayout swipeRefreshLayoutView;
+  @BindView(R2.id.toolbar) Toolbar toolbarView;
+  @BindView(R2.id.image_gallery) ImageGalleryView imageGalleryView;
+  @BindView(R2.id.product_description) ProductDescriptionView productDescriptionView;
 
   private final LifecycleRegistry lifecycleRegistry = new LifecycleRegistry(this);
   private ProductViewModel productViewModel;
