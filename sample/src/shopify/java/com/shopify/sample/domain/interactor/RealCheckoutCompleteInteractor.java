@@ -24,7 +24,7 @@
 
 package com.shopify.sample.domain.interactor;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import com.shopify.buy3.GraphError;
 import com.shopify.buy3.Storefront;

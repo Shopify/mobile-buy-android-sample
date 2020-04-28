@@ -1,6 +1,6 @@
 package com.shopify.sample.view.base;
 
-import android.arch.lifecycle.ViewModel;
+import androidx.lifecycle.ViewModel;
 
 import com.shopify.sample.BaseApplication;
 import com.shopify.sample.domain.usecases.UseCases;

@@ -1,7 +1,7 @@
 package com.shopify.sample.domain.usecases;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.shopify.buy3.GraphCallResult;
 import com.shopify.buy3.GraphClient;
 import com.shopify.buy3.QueryGraphCall;

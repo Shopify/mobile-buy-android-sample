@@ -24,7 +24,7 @@
 
 package com.shopify.sample.view.product;
 
-import android.arch.lifecycle.LiveData;
+import androidx.lifecycle.LiveData;
 
 import com.shopify.sample.domain.model.ProductDetails;
 import com.shopify.sample.view.ViewModel;

@@ -24,7 +24,7 @@
 
 package com.shopify.sample.view.base;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import android.view.View;
 
 import butterknife.ButterKnife;

@@ -24,7 +24,7 @@
 
 package com.shopify.sample.domain.repository;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import com.shopify.buy3.GraphCall;
 import com.shopify.buy3.GraphClient;

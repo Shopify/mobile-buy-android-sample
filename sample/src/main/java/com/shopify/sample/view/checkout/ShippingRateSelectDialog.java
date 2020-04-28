@@ -25,17 +25,19 @@
 package com.shopify.sample.view.checkout;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.StyleRes;
-import android.support.design.widget.BottomSheetDialog;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.StyleRes;
+import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.shopify.sample.R;
+import com.shopify.sample.R2;
 import com.shopify.sample.domain.model.Checkout.ShippingRate;
 import com.shopify.sample.domain.model.Checkout.ShippingRates;
 import com.shopify.sample.view.base.ListItemViewHolder;
@@ -53,8 +55,8 @@ import butterknife.OnClick;
 import static com.shopify.sample.util.Util.checkNotNull;
 
 public final class ShippingRateSelectDialog extends BottomSheetDialog implements RecyclerViewAdapter.OnItemClickListener {
-  @BindView(R.id.toolbar) Toolbar toolbarView;
-  @BindView(R.id.list) RecyclerView listView;
+  @BindView(R2.id.toolbar) Toolbar toolbarView;
+  @BindView(R2.id.list) RecyclerView listView;
 
   private final RecyclerViewAdapter listViewAdapter = new RecyclerViewAdapter(this);
   private OnShippingRateSelectListener onShippingRateSelectListener;
@@ -131,8 +133,8 @@ public final class ShippingRateSelectDialog extends BottomSheetDialog implements
   static final class ItemViewHolder extends ListItemViewHolder<ShippingRate, ListItemViewModel<ShippingRate>> {
     private static final NumberFormat CURRENCY_FORMAT = NumberFormat.getCurrencyInstance();
 
-    @BindView(R.id.title) TextView titleView;
-    @BindView(R.id.price) TextView priceView;
+    @BindView(R2.id.title) TextView titleView;
+    @BindView(R2.id.price) TextView priceView;
 
     ItemViewHolder(@NonNull final OnClickListener onClickListener) {
       super(onClickListener);
@@ -144,7 +146,7 @@ public final class ShippingRateSelectDialog extends BottomSheetDialog implements
       priceView.setText(CURRENCY_FORMAT.format(listViewItemModel.payload().price));
     }
 
-    @OnClick(R.id.root)
+    @OnClick(R2.id.root)
     void onRootViewClick() {
       notifyOnClickListener();
     }

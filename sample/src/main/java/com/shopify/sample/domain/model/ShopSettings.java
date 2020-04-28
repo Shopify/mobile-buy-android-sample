@@ -1,6 +1,6 @@
 package com.shopify.sample.domain.model;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import static com.shopify.sample.util.Util.checkNotNull;
 

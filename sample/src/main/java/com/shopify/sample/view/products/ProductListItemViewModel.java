@@ -24,10 +24,12 @@
 
 package com.shopify.sample.view.products;
 
-import android.support.annotation.NonNull;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+
 import com.shopify.sample.R;
+import com.shopify.sample.R2;
 import com.shopify.sample.domain.model.Product;
 import com.shopify.sample.view.base.ListItemViewHolder;
 import com.shopify.sample.view.base.ListItemViewModel;
@@ -71,9 +73,9 @@ final class ProductListItemViewModel extends ListItemViewModel<Product> {
   static final class ItemViewHolder extends ListItemViewHolder<Product, ListItemViewModel<Product>> {
 
     static final NumberFormat CURRENCY_FORMAT = NumberFormat.getCurrencyInstance();
-    @BindView(R.id.image) ShopifyDraweeView imageView;
-    @BindView(R.id.title) TextView titleView;
-    @BindView(R.id.price) TextView priceView;
+    @BindView(R2.id.image) ShopifyDraweeView imageView;
+    @BindView(R2.id.title) TextView titleView;
+    @BindView(R2.id.price) TextView priceView;
 
     ItemViewHolder(@NonNull final OnClickListener onClickListener) {
       super(onClickListener);
@@ -88,7 +90,7 @@ final class ProductListItemViewModel extends ListItemViewModel<Product> {
     }
 
     @SuppressWarnings("unchecked")
-    @OnClick({R.id.image, R.id.title, R.id.price})
+    @OnClick({R2.id.image, R2.id.title, R2.id.price})
     void onClick() {
       onClickListener().onClick(itemModel());
     }

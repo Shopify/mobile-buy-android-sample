@@ -26,16 +26,18 @@ package com.shopify.sample.view.collections;
 
 import android.content.Context;
 import android.graphics.Rect;
-import android.support.annotation.AttrRes;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.FrameLayout;
 
+import androidx.annotation.AttrRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.shopify.sample.R;
+import com.shopify.sample.R2;
 import com.shopify.sample.domain.model.Product;
 import com.shopify.sample.view.ScreenRouter;
 import com.shopify.sample.view.base.ListItemViewModel;
@@ -48,7 +50,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public final class ProductListView extends FrameLayout implements RecyclerViewAdapter.OnItemClickListener {
-  @BindView(R.id.list) RecyclerView listView;
+  @BindView(R2.id.list) RecyclerView listView;
   private final RecyclerViewAdapter listViewAdapter = new RecyclerViewAdapter(this);
 
   public ProductListView(@NonNull final Context context) {

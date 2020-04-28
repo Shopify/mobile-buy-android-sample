@@ -24,20 +24,22 @@
 
 package com.shopify.sample.view.cart;
 
-import android.arch.lifecycle.Lifecycle;
-import android.arch.lifecycle.LifecycleOwner;
-import android.arch.lifecycle.LifecycleRegistry;
-import android.arch.lifecycle.Transformations;
 import android.content.Context;
-import android.support.annotation.AttrRes;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
+import androidx.annotation.AttrRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.LifecycleOwner;
+import androidx.lifecycle.LifecycleRegistry;
+import androidx.lifecycle.Transformations;
+
 import com.shopify.sample.R;
+import com.shopify.sample.R2;
 
 import java.text.NumberFormat;
 
@@ -48,8 +50,8 @@ import butterknife.OnClick;
 public final class CartHeaderView extends FrameLayout implements LifecycleOwner {
   private static final NumberFormat CURRENCY_FORMAT = NumberFormat.getCurrencyInstance();
 
-  @BindView(R.id.android_pay_checkout) View androidPayCheckoutView;
-  @BindView(R.id.subtotal) TextView subtotalView;
+  @BindView(R2.id.android_pay_checkout) View androidPayCheckoutView;
+  @BindView(R2.id.subtotal) TextView subtotalView;
 
   private final LifecycleRegistry lifecycleRegistry = new LifecycleRegistry(this);
 
@@ -103,11 +105,11 @@ public final class CartHeaderView extends FrameLayout implements LifecycleOwner 
     super.onDetachedFromWindow();
   }
 
-  @OnClick(R.id.web_checkout) void onWebCheckoutClick() {
+  @OnClick(R2.id.web_checkout) void onWebCheckoutClick() {
     viewModel.webCheckout();
   }
 
-  @OnClick(R.id.android_pay_checkout) void onAndroidPayCheckoutClick() {
+  @OnClick(R2.id.android_pay_checkout) void onAndroidPayCheckoutClick() {
     viewModel.androidPayCheckout();
   }
 }

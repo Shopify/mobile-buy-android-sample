@@ -1,6 +1,6 @@
 package com.shopify.sample.domain.repository;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import com.apollographql.apollo.ApolloClient;
 import com.apollographql.apollo.api.internal.Optional;

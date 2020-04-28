@@ -25,12 +25,14 @@
 package com.shopify.sample.view.product;
 
 import android.content.Context;
-import android.support.v4.widget.NestedScrollView;
 import android.text.Html;
 import android.util.AttributeSet;
 import android.widget.TextView;
 
+import androidx.core.widget.NestedScrollView;
+
 import com.shopify.sample.R;
+import com.shopify.sample.R2;
 import com.shopify.sample.domain.model.ProductDetails;
 
 import java.math.BigDecimal;
@@ -47,9 +49,9 @@ import static com.shopify.sample.util.Util.minItem;
 public final class ProductDescriptionView extends NestedScrollView {
   static final NumberFormat CURRENCY_FORMAT = NumberFormat.getCurrencyInstance();
 
-  @BindView(R.id.title) TextView titleView;
-  @BindView(R.id.price) TextView priceView;
-  @BindView(R.id.description) TextView descriptionView;
+  @BindView(R2.id.title) TextView titleView;
+  @BindView(R2.id.price) TextView priceView;
+  @BindView(R2.id.description) TextView descriptionView;
   private OnAddToCartClickListener onAddToCartClickListener;
 
   public ProductDescriptionView(final Context context) {
@@ -84,7 +86,7 @@ public final class ProductDescriptionView extends NestedScrollView {
     this.onAddToCartClickListener = onAddToCartClickListener;
   }
 
-  @OnClick(R.id.price)
+  @OnClick(R2.id.price)
   void onAddToCartClick() {
     if (onAddToCartClickListener != null) {
       onAddToCartClickListener.onAddToCartClick();
