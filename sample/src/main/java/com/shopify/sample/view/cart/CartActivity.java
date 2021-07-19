@@ -24,7 +24,6 @@
 
 package com.shopify.sample.view.cart;
 
-import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -33,9 +32,9 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.browser.customtabs.CustomTabsIntent;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleRegistry;
-import androidx.lifecycle.LifecycleRegistryOwner;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
@@ -221,8 +220,8 @@ public final class CartActivity extends AppCompatActivity {
   }
 
   private void onWebCheckoutConfirmation(final Checkout checkout) {
-    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(checkout.webUrl));
-    startActivity(intent);
+    CustomTabsIntent customTabsIntent = new CustomTabsIntent.Builder().build();
+    customTabsIntent.launchUrl(this, Uri.parse(checkout.webUrl));
   }
 
   private void showError(final int requestId, final Throwable t, final String message) {

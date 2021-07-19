@@ -29,7 +29,7 @@ import com.apollographql.apollo.api.Response;
 import com.apollographql.apollo.exception.ApolloException;
 import com.apollographql.apollo.internal.util.Cancelable;
 
-import javax.annotation.Nonnull;
+import androidx.annotation.NonNull;
 
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
@@ -47,20 +47,20 @@ public final class RxUtil {
     return Observable.create((ObservableOnSubscribe<Response<T>>) emitter -> {
       cancelOnObservableDisposed(emitter, call);
       call.enqueue(new ApolloCall.Callback<T>() {
-        @Override public void onResponse(@Nonnull Response<T> response) {
+        @Override public void onResponse(@NonNull Response<T> response) {
           if (!emitter.isDisposed()) {
             emitter.onNext(response);
           }
         }
 
-        @Override public void onFailure(@Nonnull ApolloException e) {
+        @Override public void onFailure(@NonNull ApolloException e) {
           Exceptions.throwIfFatal(e);
           if (!emitter.isDisposed()) {
             emitter.onError(e);
           }
         }
 
-        @Override public void onStatusEvent(@Nonnull ApolloCall.StatusEvent event) {
+        @Override public void onStatusEvent(@NonNull ApolloCall.StatusEvent event) {
           if (event == ApolloCall.StatusEvent.COMPLETED && !emitter.isDisposed()) {
             emitter.onComplete();
           }

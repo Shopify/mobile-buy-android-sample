@@ -19,7 +19,7 @@ import com.shopify.sample.util.CallbackExecutors;
 
 import java.util.List;
 
-import javax.annotation.Nonnull;
+import androidx.annotation.NonNull;
 
 public final class FetchProductsUseCaseImpl implements FetchProductsUseCase {
 
@@ -54,14 +54,14 @@ public final class FetchProductsUseCaseImpl implements FetchProductsUseCase {
     }
 
     @Override
-    public void onResponse(@Nonnull final Response<Optional<CollectionProductPageQuery.Data>> response) {
+    public void onResponse(@NonNull final Response<Optional<CollectionProductPageQuery.Data>> response) {
       final Optional<CollectionProductPageQuery.Collection> collection = response.data().get().collection();
       List<Product> products = Converter.convertProducts(((CollectionProductPageQuery.AsCollection) collection.get()).productConnection());
       handler.post(() -> callback.onResponse(products));
     }
 
     @Override
-    public void onFailure(@Nonnull final ApolloException error) {
+    public void onFailure(@NonNull final ApolloException error) {
       handler.post(() -> callback.onError(error));
     }
   }

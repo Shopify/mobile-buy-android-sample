@@ -17,7 +17,7 @@ import com.shopify.sample.util.CallbackExecutors;
 import java.math.BigDecimal;
 import java.util.concurrent.TimeUnit;
 
-import javax.annotation.Nonnull;
+import androidx.annotation.NonNull;
 
 import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
@@ -77,11 +77,11 @@ public class SampleApplication extends BaseApplication {
       .httpCache(new ApolloHttpCache(new DiskLruHttpCacheStore(getCacheDir(), 1000 * 1024), null))
       .defaultHttpCachePolicy(HttpCachePolicy.CACHE_FIRST.expireAfter(20, TimeUnit.MINUTES))
       .addCustomTypeAdapter(CustomType.MONEY, new CustomTypeAdapter<BigDecimal>() {
-          @Override public BigDecimal decode(@Nonnull CustomTypeValue value) {
+          @Override public BigDecimal decode(@NonNull CustomTypeValue value) {
               return new BigDecimal(value.value.toString());
           }
 
-          @Nonnull @Override public CustomTypeValue encode(@Nonnull BigDecimal value) {
+          @NonNull @Override public CustomTypeValue encode(@NonNull BigDecimal value) {
               return CustomTypeValue.fromRawValue(value);
           }
       })

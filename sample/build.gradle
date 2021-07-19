@@ -10,7 +10,7 @@ buildscript {
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'com.jakewharton.butterknife'
-apply plugin: 'com.apollographql.android'
+apply plugin: 'com.apollographql.apollo'
 
 android {
   compileSdkVersion androidConfig.compileSdkVersion
@@ -49,7 +49,7 @@ android {
       locale = System.getenv("DEFAULT_LOCALE") ?: null
 
       // pull the store properties from the local file if it exists.  Environment variables take precedence
-      def shopProperties = new Properties();
+      def shopProperties = new Properties()
       File shopPropertiesFile = project.file('shop.properties')
 
       if (shopPropertiesFile.exists()) {
@@ -120,26 +120,11 @@ dependencies {
   implementation dep.kotlinStdLib
   implementation dep.buySdk
   implementation dep.gson
+  implementation dep.androidXBrowser
 
   xApolloImplementation dep.apolloRuntime
   xApolloImplementation dep.okhttpLogging
   xApolloImplementation dep.apolloHttpCache
-}
-
-task downloadApolloSchema(type: DefaultTask, group: "GraphQL", description: "Download GraphQL store front API schema") {
-  doLast {
-    println("Downloading GraphQL schema...")
-    def schemaFile = new File(project.projectDir.absolutePath + '/src/xApollo/graphql/com/shopify/sample/domain/schema.json')
-    if (schemaFile.exists()) {
-      schemaFile.delete()
-    }
-    new URL('https://app.shopify.com/services/graphql/introspection/storefront?api_client_api_key=4a6c829ec3cb12ef9004bf8ed27adf12').withInputStream { i ->
-      schemaFile.withOutputStream {
-        it << i
-      }
-    }
-    println("GraphQL schema has been downloaded!")
-  }
 }
 
 apollo {
@@ -150,4 +135,15 @@ apollo {
   ]
   nullableValueType = "apolloOptional"
   useSemanticNaming = false
+  // The schema can be updated by running the command `./gradlew downloadStorefrontApolloSchema`
+  service("storefront") {
+    schemaPath = 'com/shopify/sample/domain/schema.json'
+    introspection {
+      sourceSetName = 'xApollo'
+      endpointUrl = 'https://graphql.myshopify.com/api/2021-07/graphql.json'
+      headers = [
+        'X-Shopify-Storefront-Access-Token' : '8e2fef6daed4b93cf4e731f580799dd1'
+      ]
+    }
+  }
 }
