@@ -16,17 +16,19 @@ The Buy SDK includes a comprehensive sample application that covers the SDK's mo
 
 ## Setup [⤴](#table-of-contents)
 
-To run the sample application, you need to provide credentials to the shop that the app will point to:
+To run the sample application, you can import this repository in Android Studio and run the project on a virtual device that you've created in the AVD manager.
+
+### Provide your own credentials
+
+You may choose to provide credentials to the shop that the app will point to:
 
 1. Create a private app with a Storefront API access token to access the storefront data. The storefront access token acts as the API key.
-2. Create `shop.properties` file under the root folder and add next lines:
+2. Modify the file `sample/shop.properties` with your credentials.
     
 ```
 SHOP_DOMAIN=<your-shop-here>.myshopify.com
 API_KEY=<your-api-key>
 ```
-
-3. Install a virtual device using the AVD Manager and run the sample app on that device.
 
 ## Contributions [⤴](#table-of-contents)
 
