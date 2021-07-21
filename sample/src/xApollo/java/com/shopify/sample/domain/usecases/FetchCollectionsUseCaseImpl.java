@@ -18,7 +18,7 @@ import com.shopify.sample.util.CallbackExecutors;
 
 import java.util.List;
 
-import javax.annotation.Nonnull;
+import androidx.annotation.NonNull;
 
 public final class FetchCollectionsUseCaseImpl implements FetchCollectionsUseCase {
 
@@ -53,14 +53,14 @@ public final class FetchCollectionsUseCaseImpl implements FetchCollectionsUseCas
     }
 
     @Override
-    public void onResponse(@Nonnull final Response<Optional<CollectionPageWithProductsQuery.Data>> response) {
+    public void onResponse(@NonNull final Response<Optional<CollectionPageWithProductsQuery.Data>> response) {
       final CollectionPageWithProductsQuery.Shop shop = response.data().get().shop();
       List<Collection> collections = Converter.convertCollections(shop.collectionConnection());
       handler.post(() -> callback.onResponse(collections));
     }
 
     @Override
-    public void onFailure(@Nonnull final ApolloException error) {
+    public void onFailure(@NonNull final ApolloException error) {
       handler.post(() -> callback.onError(error));
     }
   }

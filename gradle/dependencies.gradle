@@ -1,13 +1,14 @@
 def versions = [
-    androidPlugin        : '3.3.0',
+    androidPlugin        : '4.2.0',
     androidSupportVersion: '1.0.0',
+    androidXBrowser      : '1.3.0',
     okHttpVersion        : '3.7.0',
     playServicesVersion  : '16.0.1',
     jodaTimeVersion      : '2.9.9',
     butterKnifeVersion   : '10.2.1',
-    apolloVersion        : '1.0.0',
+    apolloVersion        : '2.5.9',
     archVersion          : '2.0.0',
-    kotlin               : '1.3.30',
+    kotlin               : '1.5.20',
     buySdkVersion        : '5.0.0'
 ]
 
@@ -15,7 +16,7 @@ ext.isCi = "true" == System.getenv('CI')
 
 ext.androidConfig = [
     compileSdkVersion: 28,
-    buildToolsVersion: '28.0.3',
+    buildToolsVersion: '30.0.2',
     minSdkVersion    : 21
 ]
 
@@ -25,6 +26,7 @@ ext.dep = [
     androidSupportDesign     : "com.google.android.material:material:$versions.androidSupportVersion",
     androidSupportV4         : "androidx.legacy:legacy-support-v4:$versions.androidSupportVersion",
     androidSupportV7         : "androidx.appcompat:appcompat:$versions.androidSupportVersion",
+    androidXBrowser          : "androidx.browser:browser:$versions.androidXBrowser",
     kotlinPlugin             : "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin",
     kotlinStdLib             : "org.jetbrains.kotlin:kotlin-stdlib:$versions.kotlin",
     okhttp                   : "com.squareup.okhttp3:logging-interceptor:$versions.okHttpVersion",
