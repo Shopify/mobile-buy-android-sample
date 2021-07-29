@@ -26,6 +26,7 @@ package com.shopify.sample.view.cart;
 
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Base64;
 import android.view.View;
 
 import androidx.annotation.Nullable;
@@ -48,6 +49,11 @@ import com.shopify.sample.domain.model.ShopSettings;
 import com.shopify.sample.view.ProgressDialogHelper;
 import com.shopify.sample.view.ScreenRouter;
 import com.shopify.sample.view.checkout.CheckoutViewModel;
+
+import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -176,6 +182,11 @@ public final class CartActivity extends AppCompatActivity {
         onWebCheckoutConfirmation(checkout);
       }
     });
+    cartDetailsViewModel.shopPayCheckoutCallback().observe(this.getLifecycle(), checkout -> {
+      if (checkout != null) {
+        onShopPayCheckoutConfirmation(checkout);
+      }
+    });
     cartDetailsViewModel.androidPayStartCheckoutCallback().observe(this.getLifecycle(), payCart -> {
       if (cartHeaderViewModel.googleApiClientConnectionData().getValue() == Boolean.TRUE && payCart != null) {
 //        PayHelper.requestMaskedWallet(googleApiClient, payCart, BuildConfig.ANDROID_PAY_PUBLIC_KEY);
@@ -222,6 +233,33 @@ public final class CartActivity extends AppCompatActivity {
   private void onWebCheckoutConfirmation(final Checkout checkout) {
     CustomTabsIntent customTabsIntent = new CustomTabsIntent.Builder().build();
     customTabsIntent.launchUrl(this, Uri.parse(checkout.webUrl));
+  }
+
+  private void onShopPayCheckoutConfirmation(final Checkout checkout) {
+    Uri shopPayUri = buildShopPayURI(checkout);
+    CustomTabsIntent customTabsIntent = new CustomTabsIntent.Builder().build();
+    customTabsIntent.launchUrl(this, shopPayUri);
+  }
+
+  private Uri buildShopPayURI(Checkout checkout) {
+    String storeAuthority = Uri.parse(checkout.webUrl).getAuthority();
+    Uri.Builder shopPayBuilder = new Uri.Builder()
+            .scheme("https")
+            .authority(storeAuthority)
+            .appendPath("cart")
+            .appendEncodedPath(getVariantSlug(checkout))
+            .appendQueryParameter("payment", "shop_pay");
+    return shopPayBuilder.build();
+  }
+
+  private String getVariantSlug(Checkout checkout) {
+    return checkout.lineItems.stream().map(item -> getDecodedVariantId(item.variantId) + ":" + item.quantity).collect(Collectors.joining(","));
+  }
+
+  private String getDecodedVariantId(String variantId) {
+    String fullVariantId = new String(Base64.decode(variantId, Base64.DEFAULT), StandardCharsets.UTF_8);
+    List<String> elements = Arrays.asList(fullVariantId.split("/"));
+    return elements.get(elements.size() - 1);
   }
 
   private void showError(final int requestId, final Throwable t, final String message) {

@@ -55,6 +55,7 @@ public final class RealCartViewModel extends BaseViewModel implements CartDetail
   private final CartWatchInteractor cartWatchInteractor = new RealCartWatchInteractor();
   private final CheckoutCreateInteractor checkoutCreateInteractor = new RealCheckoutCreateInteractor();
   private final LifeCycleBoundCallback<Checkout> webCheckoutCallback = new LifeCycleBoundCallback<>();
+  private final LifeCycleBoundCallback<Checkout> shopPayCheckoutCallback = new LifeCycleBoundCallback<>();
   private final LifeCycleBoundCallback<Cart> androidPayStartCheckoutCallback = new LifeCycleBoundCallback<>();
   private final LifeCycleBoundCallback<AndroidPayCheckout> androidPayCheckoutCallback = new LifeCycleBoundCallback<>();
   private final MutableLiveData<Cart> cartLiveData = new MutableLiveData<>();
@@ -84,6 +85,11 @@ public final class RealCartViewModel extends BaseViewModel implements CartDetail
     createCheckout(REQUEST_ID_CREATE_ANDROID_PAY_CHECKOUT, cartLiveData.getValue());
   }
 
+  @Override
+  public void shopPayCheckout() {
+    createCheckout(REQUEST_ID_CREATE_SHOP_PAY_CHECKOUT, cartLiveData.getValue());
+  }
+
   @Override public LiveData<Boolean> googleApiClientConnectionData() {
     return googleApiClientConnectionData;
   }
@@ -99,6 +105,11 @@ public final class RealCartViewModel extends BaseViewModel implements CartDetail
   @Override public LifeCycleBoundCallback<Checkout> webCheckoutCallback() {
     return webCheckoutCallback;
   }
+
+  @Override public LifeCycleBoundCallback<Checkout> shopPayCheckoutCallback() {
+    return shopPayCheckoutCallback;
+  }
+
 
   @Override public LifeCycleBoundCallback<AndroidPayCheckout> androidPayCheckoutCallback() {
     return androidPayCheckoutCallback;
@@ -143,6 +154,7 @@ public final class RealCartViewModel extends BaseViewModel implements CartDetail
   private void createCheckout(final int requestId, final Cart cart) {
     cancelRequest(REQUEST_ID_CREATE_WEB_CHECKOUT);
     cancelRequest(REQUEST_ID_CREATE_ANDROID_PAY_CHECKOUT);
+    cancelRequest(REQUEST_ID_CREATE_SHOP_PAY_CHECKOUT);
 
     if (cart == null) return;
 
@@ -170,6 +182,8 @@ public final class RealCartViewModel extends BaseViewModel implements CartDetail
       webCheckoutCallback.notify(checkout);
     } else if (requestId == REQUEST_ID_CREATE_ANDROID_PAY_CHECKOUT) {
 //      androidPayStartCheckoutCallback.notify(payCart = checkoutPayCart(checkout));
+    } else if (requestId == REQUEST_ID_CREATE_SHOP_PAY_CHECKOUT) {
+      shopPayCheckoutCallback.notify(checkout);
     }
   }
 
