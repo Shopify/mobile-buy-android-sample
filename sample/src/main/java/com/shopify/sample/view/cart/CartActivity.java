@@ -46,13 +46,12 @@ import com.shopify.sample.R;
 import com.shopify.sample.R2;
 import com.shopify.sample.domain.model.Checkout;
 import com.shopify.sample.domain.model.ShopSettings;
+import com.shopify.sample.util.ShopPayUriBuilder;
 import com.shopify.sample.view.ProgressDialogHelper;
 import com.shopify.sample.view.ScreenRouter;
 import com.shopify.sample.view.checkout.CheckoutViewModel;
 
 import java.nio.charset.StandardCharsets;
-import java.util.Arrays;
-import java.util.List;
 import java.util.stream.Collectors;
 
 import butterknife.BindView;
@@ -236,30 +235,8 @@ public final class CartActivity extends AppCompatActivity {
   }
 
   private void onShopPayCheckoutConfirmation(final Checkout checkout) {
-    Uri shopPayUri = buildShopPayURI(checkout);
     CustomTabsIntent customTabsIntent = new CustomTabsIntent.Builder().build();
-    customTabsIntent.launchUrl(this, shopPayUri);
-  }
-
-  private Uri buildShopPayURI(Checkout checkout) {
-    String storeAuthority = Uri.parse(checkout.webUrl).getAuthority();
-    Uri.Builder shopPayBuilder = new Uri.Builder()
-            .scheme("https")
-            .authority(storeAuthority)
-            .appendPath("cart")
-            .appendEncodedPath(getVariantSlug(checkout))
-            .appendQueryParameter("payment", "shop_pay");
-    return shopPayBuilder.build();
-  }
-
-  private String getVariantSlug(Checkout checkout) {
-    return checkout.lineItems.stream().map(item -> getDecodedVariantId(item.variantId) + ":" + item.quantity).collect(Collectors.joining(","));
-  }
-
-  private String getDecodedVariantId(String variantId) {
-    String fullVariantId = new String(Base64.decode(variantId, Base64.DEFAULT), StandardCharsets.UTF_8);
-    List<String> elements = Arrays.asList(fullVariantId.split("/"));
-    return elements.get(elements.size() - 1);
+    customTabsIntent.launchUrl(this, ShopPayUriBuilder.buildShopPayURI(checkout));
   }
 
   private void showError(final int requestId, final Throwable t, final String message) {
