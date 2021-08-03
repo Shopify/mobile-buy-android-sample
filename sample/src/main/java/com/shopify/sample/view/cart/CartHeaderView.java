@@ -109,6 +109,10 @@ public final class CartHeaderView extends FrameLayout implements LifecycleOwner 
     viewModel.webCheckout();
   }
 
+  @OnClick(R2.id.shop_pay) void onShopPayCheckoutClick() {
+    viewModel.shopPayCheckout();
+  }
+
   @OnClick(R2.id.android_pay_checkout) void onAndroidPayCheckoutClick() {
     viewModel.androidPayCheckout();
   }

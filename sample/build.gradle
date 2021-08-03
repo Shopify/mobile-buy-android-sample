@@ -4,6 +4,7 @@ buildscript {
     classpath dep.butterknifePlugin
     classpath dep.apolloPlugin
     classpath dep.kotlinPlugin
+    classpath dep.junitPlugin
   }
 }
 
@@ -11,6 +12,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'com.jakewharton.butterknife'
 apply plugin: 'com.apollographql.apollo'
+apply plugin: 'de.mannodermaus.android-junit5'
 
 android {
   compileSdkVersion androidConfig.compileSdkVersion
@@ -109,6 +111,8 @@ dependencies {
   implementation dep.rxJava
   implementation dep.timber
   implementation dep.butterKnife
+  testImplementation dep.junitRuntime
+  testRuntimeOnly dep.junitEngine
   annotationProcessor dep.butterKnifeCompiler
   implementation(dep.fresco) {
     exclude group: 'com.android.support'

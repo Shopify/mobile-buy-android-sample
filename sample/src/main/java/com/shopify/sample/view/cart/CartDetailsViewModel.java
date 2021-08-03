@@ -36,12 +36,15 @@ import java.util.UUID;
 public interface CartDetailsViewModel extends ViewModel {
   int REQUEST_ID_UPDATE_CART = UUID.randomUUID().hashCode();
   int REQUEST_ID_CREATE_WEB_CHECKOUT = UUID.randomUUID().hashCode();
+  int REQUEST_ID_CREATE_SHOP_PAY_CHECKOUT = UUID.randomUUID().hashCode();
   int REQUEST_ID_CREATE_ANDROID_PAY_CHECKOUT = UUID.randomUUID().hashCode();
   int REQUEST_ID_PREPARE_ANDROID_PAY = UUID.randomUUID().hashCode();
 
   void onGoogleApiClientConnectionChanged(boolean connected);
 
   LifeCycleBoundCallback<Checkout> webCheckoutCallback();
+
+  LifeCycleBoundCallback<Checkout> shopPayCheckoutCallback();
 
   LifeCycleBoundCallback<CartDetailsViewModel.AndroidPayCheckout> androidPayCheckoutCallback();
 

@@ -26,6 +26,7 @@ package com.shopify.sample.view.cart;
 
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Base64;
 import android.view.View;
 
 import androidx.annotation.Nullable;
@@ -45,9 +46,13 @@ import com.shopify.sample.R;
 import com.shopify.sample.R2;
 import com.shopify.sample.domain.model.Checkout;
 import com.shopify.sample.domain.model.ShopSettings;
+import com.shopify.sample.util.ShopPayUriBuilder;
 import com.shopify.sample.view.ProgressDialogHelper;
 import com.shopify.sample.view.ScreenRouter;
 import com.shopify.sample.view.checkout.CheckoutViewModel;
+
+import java.nio.charset.StandardCharsets;
+import java.util.stream.Collectors;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -176,6 +181,11 @@ public final class CartActivity extends AppCompatActivity {
         onWebCheckoutConfirmation(checkout);
       }
     });
+    cartDetailsViewModel.shopPayCheckoutCallback().observe(this.getLifecycle(), checkout -> {
+      if (checkout != null) {
+        onShopPayCheckoutConfirmation(checkout);
+      }
+    });
     cartDetailsViewModel.androidPayStartCheckoutCallback().observe(this.getLifecycle(), payCart -> {
       if (cartHeaderViewModel.googleApiClientConnectionData().getValue() == Boolean.TRUE && payCart != null) {
 //        PayHelper.requestMaskedWallet(googleApiClient, payCart, BuildConfig.ANDROID_PAY_PUBLIC_KEY);
@@ -222,6 +232,11 @@ public final class CartActivity extends AppCompatActivity {
   private void onWebCheckoutConfirmation(final Checkout checkout) {
     CustomTabsIntent customTabsIntent = new CustomTabsIntent.Builder().build();
     customTabsIntent.launchUrl(this, Uri.parse(checkout.webUrl));
+  }
+
+  private void onShopPayCheckoutConfirmation(final Checkout checkout) {
+    CustomTabsIntent customTabsIntent = new CustomTabsIntent.Builder().build();
+    customTabsIntent.launchUrl(this, ShopPayUriBuilder.buildShopPayURI(checkout));
   }
 
   private void showError(final int requestId, final Throwable t, final String message) {

@@ -38,4 +38,6 @@ public interface CartHeaderViewModel {
   void webCheckout();
 
   void androidPayCheckout();
+
+  void shopPayCheckout();
 }

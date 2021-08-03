@@ -3,4 +3,5 @@
     <color name="colorPrimary">#0A0A0B</color>
     <color name="text_grey">#6c6c6c</color>
     <color name="snackbar_error_background">#ff0e0e</color>
+    <color name="shop_pay_primary">#5a31f4</color>
 </resources>

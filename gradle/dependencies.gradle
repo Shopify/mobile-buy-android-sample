@@ -9,7 +9,9 @@ def versions = [
     apolloVersion        : '2.5.9',
     archVersion          : '2.0.0',
     kotlin               : '1.5.20',
-    buySdkVersion        : '5.0.0'
+    buySdkVersion        : '5.0.0',
+    junitVersion         : '1.7.1.1',
+    junitApiVersion      : '5.7.1'
 ]
 
 ext.isCi = "true" == System.getenv('CI')
@@ -17,7 +19,7 @@ ext.isCi = "true" == System.getenv('CI')
 ext.androidConfig = [
     compileSdkVersion: 28,
     buildToolsVersion: '30.0.2',
-    minSdkVersion    : 21
+    minSdkVersion    : 24
 ]
 
 ext.dep = [
@@ -54,5 +56,8 @@ ext.dep = [
     rxrelay                  : "com.jakewharton.rxrelay2:rxrelay:2.0.0",
     archComponents           : "androidx.lifecycle:lifecycle-extensions:$versions.archVersion",
     gson                     : "com.google.code.gson:gson:2.8.6",
-    buySdk                   : "com.shopify.mobilebuysdk:buy3:$versions.buySdkVersion"
+    buySdk                   : "com.shopify.mobilebuysdk:buy3:$versions.buySdkVersion",
+    junitPlugin              : "de.mannodermaus.gradle.plugins:android-junit5:$versions.junitVersion",
+    junitRuntime             : "org.junit.jupiter:junit-jupiter-api:$versions.junitApiVersion",
+    junitEngine              : "org.junit.jupiter:junit-jupiter-engine:$versions.junitApiVersion",
 ]
